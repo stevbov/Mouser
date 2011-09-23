@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mouser", "Mouser\Mouser.vcproj", "{DFAB5000-4AB7-487D-916A-5D5664F9F280}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2B08A058-007C-4F03-BBAE-6057F0F00C85}"
+	ProjectSection(SolutionItems) = preProject
+		README.txt = README.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFAB5000-4AB7-487D-916A-5D5664F9F280}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DFAB5000-4AB7-487D-916A-5D5664F9F280}.Debug|Win32.Build.0 = Debug|Win32
+		{DFAB5000-4AB7-487D-916A-5D5664F9F280}.Release|Win32.ActiveCfg = Release|Win32
+		{DFAB5000-4AB7-487D-916A-5D5664F9F280}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
