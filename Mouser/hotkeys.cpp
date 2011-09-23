@@ -70,11 +70,11 @@ void HandleHotkey(int modifier, int key)
         {
             SetCursorPos(cursorPositions[i].x, cursorPositions[i].y);
 
-			HWND overWindow = WindowFromPoint(cursorPositions[i]);
-			if (overWindow)
-			{
-				SetForegroundWindow(overWindow);
-			}
+            HWND overWindow = WindowFromPoint(cursorPositions[i]);
+            if (overWindow)
+            {
+                SetForegroundWindow(overWindow);
+            }
         }
         else
         {
