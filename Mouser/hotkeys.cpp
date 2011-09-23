@@ -69,6 +69,12 @@ void HandleHotkey(int modifier, int key)
         if (cursorPositionIsSet[i])
         {
             SetCursorPos(cursorPositions[i].x, cursorPositions[i].y);
+
+			HWND overWindow = WindowFromPoint(cursorPositions[i]);
+			if (overWindow)
+			{
+				SetForegroundWindow(overWindow);
+			}
         }
         else
         {
