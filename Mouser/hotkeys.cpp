@@ -10,7 +10,7 @@ static const int MOD_RESTORE_POSITION = MOD_CONTROL;
 
 // if you change the hotkeys you may have to change FindHotkeyIndex
 static const char hotkeys[MAX_HOTKEYS] = {
-	'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
 };
 
 static POINT cursorPositions[MAX_HOTKEYS];
@@ -21,64 +21,64 @@ static int FindHotkeyIndex(char c);
 
 BOOL RegisterHotkeys(HWND hWnd)
 {
-	BOOL success = TRUE;
+    BOOL success = TRUE;
 
-	for (int i = 0; i < MAX_HOTKEYS && success; ++i)
-	{
-		if (!RegisterHotKey(hWnd, i, MOD_RESTORE_POSITION, hotkeys[i]))
-			success = FALSE;
-		if (!RegisterHotKey(hWnd, MAX_HOTKEYS + i, MOD_STORE_POSITION, hotkeys[i]))
-			success = FALSE;
-	}
+    for (int i = 0; i < MAX_HOTKEYS && success; ++i)
+    {
+        if (!RegisterHotKey(hWnd, i, MOD_RESTORE_POSITION, hotkeys[i]))
+            success = FALSE;
+        if (!RegisterHotKey(hWnd, MAX_HOTKEYS + i, MOD_STORE_POSITION, hotkeys[i]))
+            success = FALSE;
+    }
 
-	if (!success)
-	{
-		UnregisterHotkeys(hWnd);
-	}
+    if (!success)
+    {
+        UnregisterHotkeys(hWnd);
+    }
 
-	return success;
+    return success;
 }
 
 void UnregisterHotkeys(HWND hWnd)
 {
-	// Hold & restore the last error incase we unregister a hotkey that we
-	// didn't register, so we don't clobber the last error for a more important
-	// error.
-	int error = GetLastError();
+    // Hold & restore the last error incase we unregister a hotkey that we
+    // didn't register, so we don't clobber the last error for a more important
+    // error.
+    int error = GetLastError();
 
-	for (int i = 0; i < MAX_HOTKEYS; ++i)
-	{
-		UnregisterHotKey(hWnd, i);
-		UnregisterHotKey(hWnd, MAX_HOTKEYS + i);
-	}
+    for (int i = 0; i < MAX_HOTKEYS; ++i)
+    {
+        UnregisterHotKey(hWnd, i);
+        UnregisterHotKey(hWnd, MAX_HOTKEYS + i);
+    }
 
-	SetLastError(error);
+    SetLastError(error);
 }
 
 void HandleHotkey(int modifier, int key)
 {
-	int i = FindHotkeyIndex(key);
+    int i = FindHotkeyIndex(key);
 
-	if (modifier == MOD_STORE_POSITION)
-	{
-		cursorPositionIsSet[i] = TRUE;
-		GetCursorPos(&cursorPositions[i]);
-	}
-	else if (modifier == MOD_RESTORE_POSITION)
-	{
-		if (cursorPositionIsSet[i])
-		{
-			SetCursorPos(cursorPositions[i].x, cursorPositions[i].y);
-		}
-		else
-		{
-			// No warning, no nothing.
-		}
-	}
-	else
-	{
-		// No warning, no nothing.
-	}
+    if (modifier == MOD_STORE_POSITION)
+    {
+        cursorPositionIsSet[i] = TRUE;
+        GetCursorPos(&cursorPositions[i]);
+    }
+    else if (modifier == MOD_RESTORE_POSITION)
+    {
+        if (cursorPositionIsSet[i])
+        {
+            SetCursorPos(cursorPositions[i].x, cursorPositions[i].y);
+        }
+        else
+        {
+            // No warning, no nothing.
+        }
+    }
+    else
+    {
+        // No warning, no nothing.
+    }
 }
 
 /*
@@ -87,6 +87,6 @@ void HandleHotkey(int modifier, int key)
  */
 static int FindHotkeyIndex(char c)
 {
-	assert(c <= '9' && c >= '0');
-	return c - '0';
+    assert(c <= '9' && c >= '0');
+    return c - '0';
 }
